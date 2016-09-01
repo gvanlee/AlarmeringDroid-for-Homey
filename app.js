@@ -43,7 +43,7 @@ function init() {
 
 function logMessage(sLog) {
     // Only for debug purposes
-    Homey.log(sLog);
+    // Homey.log(sLog);
 }
 
 function feedReceived(sFeed, bNotify) {
