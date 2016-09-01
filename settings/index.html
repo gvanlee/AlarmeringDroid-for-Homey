@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>AlarmeringDroid</h1>
+        <p>Stel hier in welke meldingen je wilt krijgen</p>
+        <p>In ieder veld kun je een enkele waarde opgeven, of meerdere, gescheiden door punt-komma's</p>
+        <p>Na het opslaan zal Homey iedere volgende melding (maximaal 1 per minuut) signaleren. Vergeet niet om een Flow aan te maken die iets doet met deze signalering.</p>
+
+        <fieldset>
+            <legend>Zoekfilter</legend>
+
+            <div class="field row">
+                <label for="capcode">Capcode</label>
+                <input id="capcode" type="text" value="" />
+            </div>
+            <div class="field row">
+                <label for="woonplaats">Woonplaats</label>
+                <input id="woonplaats" type="text" value="" />
+            </div>
+            <div class="field row">
+                <label for="gemeente">Gemeente</label>
+                <input id="gemeente" type="text" value="" />
+            </div>
+            <div class="field row">
+                <label for="regio">Veiligheidsregio</label>
+                <select name="regio" id="regio" size="1">
+                    <option value="">(Alle regio's)</option>
+                    <option value="1">Amsterdam-Amstelland</option>
+                    <option value="6">Brabant Noord</option>
+                    <option value="11">Brabant Zuid-Oost</option>
+                    <option value="12">Drenthe</option>
+                    <option value="27">Flevoland</option>
+                    <option value="7">Friesland</option>
+                    <option value="8">Gelderland-Midden</option>
+                    <option value="13">Gelderland-Zuid</option>
+                    <option value="19">Gooi en Vechtstreek</option>
+                    <option value="2">Groningen</option>
+                    <option value="25">Haaglanden</option>
+                    <option value="5">Hollands Midden</option>
+                    <option value="17">IJsselland</option>
+                    <option value="9">Kennemerland</option>
+                    <option value="15">Limburg-Noord</option>
+                    <option value="21">Limburg-Zuid</option>
+                    <option value="26">Midden- en West Brabant</option>
+                    <option value="3">Noord- en Oost Gelderland</option>
+                    <option value="24">Noord-Holland Noord</option>
+                    <option value="10">Rotterdam-Rijnmond</option>
+                    <option value="23">Twente</option>
+                    <option value="18">Utrecht</option>
+                    <option value="4">Zaanstreek-Waterland</option>
+                    <option value="20">Zeeland</option>
+                    <option value="14">Zuid-Holland Zuid</option>
+                </select>
+            </div>
+            <div class="field row">
+                <label for="prio1">Alleen prio1</label>
+                <select name="prio1" id="prio1" size="1">
+                    <option value="">Nee, op alle meldingen reageren</option>
+                    <option value="1">Ja, alleen op prio1 meldingen reageren</option>
+                </select>
+            </div>
+            <div class="field row">
+                <label for="dienst">Dienst</label>
+                <select id="dienst" size="1">
+                    <option value="">(Alle diensten)</option>
+                    <option value="3">Ambulance</option>
+                    <option value="2">Brandweer</option>
+                    <option value="7">DARES</option>
+                    <option value="4">KNRM</option>
+                    <option value="5">Lifeliner</option>
+                    <option value="1">Politie</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <button class="right" onclick="save()">Opslaan</button>
+
+        <script type="text/javascript">
+        function onHomeyReady(){
+            Homey.ready();
+            
+            // load settings from persistemt storage
+            myGet('capcode');
+            myGet('woonplaats');
+            myGet('gemeente');
+            myGetOption('regio');
+            myGetOption('prio1');
+            myGetOption('dienst');
+        }
+        
+
+        // save settings to persistemt storage
+        function save() {
+            mySet('capcode');
+            mySet('woonplaats');
+            mySet('gemeente');
+            mySetOption('regio');
+            mySetOption('prio1');
+            mySetOption('dienst');
+            
+            Homey.set('lastid', 0);
+        }
+
+        // helper functions for persistent storage
+        function myGet(setting) {
+            Homey.get(setting, function(err, data) {
+                document.getElementById(setting).value = data;
+            });        
+        }
+        function mySet(setting) {
+            Homey.set(setting, document.getElementById(setting).value);        
+        }
+        function myGetOption(setting) {
+            Homey.get(setting, function(err, data) {
+                document.getElementById(setting).selectedIndex = data;
+            });        
+        }
+        function mySetOption(setting) {
+            Homey.set(setting, document.getElementById(setting).selectedIndex);        
+        }
+        </script>
+
+    </body>
+</html>

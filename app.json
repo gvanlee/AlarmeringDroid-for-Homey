@@ -1,0 +1,61 @@
+{
+    "id": "nl.alarmeringdroid.homey",
+    "name": {
+        "nl": "AlarmeringDroid",
+        "en": "AlarmeringDroid"
+    },
+    "description": {
+        "nl": "Signalering van meldingen die via P2000 verstuurd zijn",
+        "en": "Take action based on messages received thru the Dutch P2000 network (messages in Dutch)"
+    },
+    "version": "0.1.0",
+    "compatibility": "0.9",
+    "author": {
+        "name": "Gabri van Lee",
+        "email": "info@alarmeringdroid.nl"
+    },
+    "category": "internet",
+    "images": {
+        "large": "./assets/images/large.png",
+        "small": "./assets/images/small.png"
+    },
+    "permissions": [
+        "homey:manager:speech-output",
+        "homey:manager:ledring"
+    ],
+    "flow": {
+        "triggers": [
+            {
+                "id": "new_message",
+                "title": {
+                    "en": "A new message has been received",
+                    "nl": "Een nieuwe melding is ontvangen"
+                },
+                "tokens": [
+                    {
+                        "name": "tekst",
+                        "title": {
+                            "en": "text",
+                            "nl": "tekst"
+                        },
+                        "example": {
+                            "en": "Brandweer met gepaste spoed naar de Ontwikkelstraat in Athom voor een Homeybrand",
+                            "nl": "Brandweer met gepaste spoed naar de Ontwikkelstraat in Athom voor een Homeybrand"
+                        }
+                    },
+                    {
+                        "name": "dienst",
+                        "title": {
+                            "en": "service",
+                            "nl": "dienst"
+                        },
+                        "example": {
+                            "en": "Brandweer",
+                            "nl": "Brandweer"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

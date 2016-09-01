@@ -1,7 +1,12 @@
 # AlarmeringDroid-for-Homey
 
-P2000 meldingen via de Homey.
+This app gives Homey the ability to respond to messages of the Dutch P2000 network.
 
-Bijzonder premature, initiele versie.
+What works:
 
-Nog niet geschikt voor gebruik.
+* Basic search abilities (capcode, town, region, etc.)
+* Use in flow to trigger anything, e.g. speach so Homey tells you what is happening
+
+What could be better:
+
+* Uses a 1 minute interval for checking. (Near) real time would be a nice feature. We are looking into this.
