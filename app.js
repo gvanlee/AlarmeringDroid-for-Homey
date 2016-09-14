@@ -27,6 +27,8 @@ function init() {
         
         try {
             fetchFeed(true);
+            sleep(25);
+            fetchFeed(true);
         }
         catch (ex) {
             logMessage('Exception: ' + ex);

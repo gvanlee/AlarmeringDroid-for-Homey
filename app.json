@@ -6,9 +6,9 @@
     },
     "description": {
         "nl": "Signalering van meldingen die via P2000 verstuurd zijn",
-        "en": "Take action based on messages received thru the Dutch P2000 network (messages in Dutch)"
+        "en": "Take action based on messages of the Dutch P2000 network"
     },
-    "version": "0.1.0",
+    "version": "0.2.0",
     "compatibility": "0.9",
     "author": {
         "name": "Gabri van Lee",
@@ -20,8 +20,6 @@
         "small": "./assets/images/small.png"
     },
     "permissions": [
-        "homey:manager:speech-output",
-        "homey:manager:ledring"
     ],
     "flow": {
         "triggers": [
