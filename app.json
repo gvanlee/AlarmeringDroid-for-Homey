@@ -9,7 +9,7 @@
         "en": "Take action based on messages of the Dutch P2000 network"
     },
     "version": "1.0.0",
-    "compatibility": "0.9",
+    "compatibility": ">=0.9"]
     "author": {
         "name": "Gabri van Lee",
         "email": "info@alarmeringdroid.nl"
