@@ -27,8 +27,8 @@ function init() {
         
         try {
             fetchFeed(true);
-            sleep(25);
-            fetchFeed(true);
+            
+            setTimeout(function() { fetchFeed(true) }, 25000);
         }
         catch (ex) {
             logMessage('Exception: ' + ex);

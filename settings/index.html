@@ -115,11 +115,13 @@
         }
         function myGetOption(setting) {
             Homey.get(setting, function(err, data) {
-                document.getElementById(setting).selectedIndex = data;
+                if (data == undefined) data = "";
+            
+                document.getElementById(setting).value = data;
             });        
         }
         function mySetOption(setting) {
-            Homey.set(setting, document.getElementById(setting).selectedIndex);        
+            Homey.set(setting, document.getElementById(setting).value);        
         }
         </script>
 
