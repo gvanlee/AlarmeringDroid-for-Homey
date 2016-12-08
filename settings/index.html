@@ -74,6 +74,13 @@
                     <option value="1">Politie</option>
                 </select>
             </div>
+            <div class="field row">
+                <label for="prio1">Lifeliners</label>
+                <select name="life" id="life" size="1">
+                    <option value="">Alleen binnen de ingestelde regio</option>
+                    <option value="1">Alle meldingen, ongeacht de regio</option>
+                </select>
+            </div>
         </fieldset>
 
         <button class="right" onclick="save()">Opslaan</button>
@@ -89,6 +96,7 @@
             myGetOption('regio');
             myGetOption('prio1');
             myGetOption('dienst');
+            myGetOption('life');
         }
         
 
@@ -100,6 +108,7 @@
             mySetOption('regio');
             mySetOption('prio1');
             mySetOption('dienst');
+            mySetOption('life');
             
             Homey.set('lastid', 0);
         }

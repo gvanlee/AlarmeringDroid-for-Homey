@@ -45,7 +45,7 @@ function init() {
 
 function logMessage(sLog) {
     // Only for debug purposes
-    // Homey.log(sLog);
+    Homey.log(sLog);
 }
 
 function feedReceived(sFeed, bNotify) {
@@ -80,13 +80,14 @@ function fetchFeed(bNotify) {
         regios: paramToArray('' + settings.get('regio')),
         diensten: paramToArray('' + settings.get('dienst')),
         prio1: settings.get('prio1'),
+        lifeliners: settings.get('life'),
         gemeenten: paramToArray(settings.get('gemeente')),
         capcodes: paramToArray(settings.get('capcode')),
         woonplaatsen: paramToArray(settings.get('woonplaats')),
         minid: settings.get('lastid')
     }; 
     
-    logMessage('params: ' + JSON.stringify(params));
+    logMessage('params: ' + JSON.stringify(params) + ', uri: /api2/find/' + encodeURIComponent(JSON.stringify(params)));
     
     var req = http.request({
             host:   'beta.alarmeringdroid.nl',
