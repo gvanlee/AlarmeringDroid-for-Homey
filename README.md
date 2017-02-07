@@ -12,5 +12,5 @@ What could be better:
 * Runs approximately twice per minute. (Near) real time would be a nice feature. We are looking into this.
 
 Last update:
-1.1.4: Added option to use raw message text in flows
-1.1.3: Added option to receive all lifeliner messages
+* 1.1.4: Added option to use raw message text in flows
+* 1.1.3: Added option to receive all lifeliner messages
