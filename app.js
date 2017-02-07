@@ -45,7 +45,7 @@ function init() {
 
 function logMessage(sLog) {
     // Only for debug purposes
-    // Homey.log(sLog);
+    Homey.log(sLog);
 }
 
 function feedReceived(sFeed, bNotify) {
@@ -61,7 +61,7 @@ function feedReceived(sFeed, bNotify) {
                 logMessage('Notified with: ' + item.tekstmelding);
                 
                 // flow triggeren als we een melding binnen hebben gekregen
-                flow.trigger('new_message', { tekst: item.tekstmelding, dienst: item.dienst });
+                flow.trigger('new_message', { tekst: item.tekstmelding, ruwetekst: item.melding, dienst: item.dienst });
             }            
         }
 

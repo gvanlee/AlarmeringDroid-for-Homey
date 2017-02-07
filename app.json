@@ -8,7 +8,7 @@
         "nl": "Signalering van meldingen die via P2000 verstuurd zijn",
         "en": "Take action based on messages of the Dutch P2000 network"
     },
-    "version": "1.1.3",
+    "version": "1.1.4",
     "compatibility": ">=0.9",
     "author": {
         "name": "Gabri van Lee",
@@ -39,6 +39,17 @@
                         "example": {
                             "en": "Brandweer met gepaste spoed naar de Ontwikkelstraat in Athom voor een Homeybrand",
                             "nl": "Brandweer met gepaste spoed naar de Ontwikkelstraat in Athom voor een Homeybrand"
+                        }
+                    },
+                    {
+                        "name": "ruwetekst",
+                        "title": {
+                            "en": "rawtext",
+                            "nl": "ruwetekst"
+                        },
+                        "example": {
+                            "en": "A1 OMS (Homeybrand) Ontwikkelstraat 4 Athom",
+                            "nl": "A1 OMS (Homeybrand) Ontwikkelstraat 4 Athom"
                         }
                     },
                     {
