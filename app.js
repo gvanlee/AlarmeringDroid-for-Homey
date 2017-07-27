@@ -10,7 +10,8 @@ function init() {
 
     // Initiele zoekslag om last id te bepalen
     fetchFeed(false);
-    
+    settings.set('lastnotify', 0);
+
     // Toevoegen aan cron voor iedere minuut een nieuwe zoekslag
     cron.registerTask('alarmeringdroid', '* * * * *', null, function(err, success) {
         if (! success) {
@@ -60,8 +61,12 @@ function feedReceived(sFeed, bNotify) {
                 
                 logMessage('Notified with: ' + item.tekstmelding);
                 
-                // flow triggeren als we een melding binnen hebben gekregen
-                flow.trigger('new_message', { tekst: item.tekstmelding, ruwetekst: item.melding, dienst: item.dienst });
+                if (settings.get('lastnotify') != item.id) {
+                    settings.set('lastnotify', item.id);
+
+                    // flow triggeren als we een melding binnen hebben gekregen
+                    flow.trigger('new_message', { tekst: item.tekstmelding, ruwetekst: item.melding, dienst: item.dienst });
+                }
             }            
         }
 
