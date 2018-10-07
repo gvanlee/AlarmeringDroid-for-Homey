@@ -1,8 +1,9 @@
 <!doctype html>
 <html>
     <head>
-
+		<script type="text/javascript" src="/homey.js" data-origin="settings"></script>
     </head>
+
     <body>
         <h1>AlarmeringDroid</h1>
         <p>Stel hier in welke meldingen je wilt krijgen</p>
@@ -86,52 +87,55 @@
         <button class="right" onclick="save()">Opslaan</button>
 
         <script type="text/javascript">
-        function onHomeyReady(){
-            Homey.ready();
-            
-            // load settings from persistemt storage
-            myGet('capcode');
-            myGet('woonplaats');
-            myGet('gemeente');
-            myGetOption('regio');
-            myGetOption('prio1');
-            myGetOption('dienst');
-            myGetOption('life');
-        }
-        
+            myHomey = null;
 
-        // save settings to persistemt storage
-        function save() {
-            mySet('capcode');
-            mySet('woonplaats');
-            mySet('gemeente');
-            mySetOption('regio');
-            mySetOption('prio1');
-            mySetOption('dienst');
-            mySetOption('life');
+            function onHomeyReady(Homey) {
+                myHomey = Homey;
+                myHomey.ready();
+                
+                // load settings from persistemt storage
+                myGet('capcode');
+                myGet('woonplaats');
+                myGet('gemeente');
+                myGetOption('regio');
+                myGetOption('prio1');
+                myGetOption('dienst');
+                myGetOption('life');
+            }
             
-            Homey.set('lastid', 0);
-        }
 
-        // helper functions for persistent storage
-        function myGet(setting) {
-            Homey.get(setting, function(err, data) {
-                document.getElementById(setting).value = data;
-            });        
-        }
-        function mySet(setting) {
-            Homey.set(setting, document.getElementById(setting).value);        
-        }
-        function myGetOption(setting) {
-            Homey.get(setting, function(err, data) {
-                if (data == undefined) data = "";
-            
-                document.getElementById(setting).value = data;
-            });        
-        }
-        function mySetOption(setting) {
-            Homey.set(setting, document.getElementById(setting).value);        
-        }
+            // save settings to persistemt storage
+            function save() {
+                mySet('capcode');
+                mySet('woonplaats');
+                mySet('gemeente');
+                mySetOption('regio');
+                mySetOption('prio1');
+                mySetOption('dienst');
+                mySetOption('life');
+                
+                myHomey.set('lastid', 0);
+            }
+
+            // helper functions for persistent storage
+            function myGet(setting) {
+                myHomey.get(setting, function(err, data) {
+                    document.getElementById(setting).value = data;
+                });        
+            }
+            function mySet(setting) {
+                myHomey.set(setting, document.getElementById(setting).value);        
+            }
+            function myGetOption(setting) {
+                myHomey.get(setting, function(err, data) {
+                    if (data == undefined) data = "";
+                
+                    document.getElementById(setting).value = data;
+                });        
+            }
+            function mySetOption(setting) {
+                myHomey.set(setting, document.getElementById(setting).value);        
+            }
         </script>
 
     </body>
