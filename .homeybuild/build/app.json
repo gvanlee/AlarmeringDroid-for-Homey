@@ -9,9 +9,9 @@
         "nl": "Signalering van meldingen die via P2000 verstuurd zijn",
         "en": "Take action based on messages of the Dutch P2000 network"
     },
-    "version": "1.3.1",
+    "version": "1.3.0",
     "compatibility": ">=5.0.0",
-    "platforms": [ "local" ],
+    "platforms": [ "cloud", "local" ],
     "brandColor": "#f6742c",
     "author": {
         "name": "Gabri van Lee",
@@ -35,7 +35,6 @@
                 "tokens": [
                     {
                         "name": "tekst",
-                        "type": "string",
                         "title": {
                             "en": "text",
                             "nl": "tekst"
@@ -47,7 +46,6 @@
                     },
                     {
                         "name": "ruwetekst",
-                        "type": "string",
                         "title": {
                             "en": "rawtext",
                             "nl": "ruwetekst"
@@ -59,7 +57,6 @@
                     },
                     {
                         "name": "dienst",
-                        "type": "string",
                         "title": {
                             "en": "service",
                             "nl": "dienst"
