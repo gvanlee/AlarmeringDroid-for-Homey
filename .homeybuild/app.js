@@ -34,12 +34,9 @@ class homeyAlarmeringDroid extends Homey.App {
                         this.homey.settings.set('lastnotify', item.id);
 
                         // flow triggeren als we een melding binnen hebben gekregen
-                        let startTrigger = new Homey.FlowCardTrigger('new_message');
-                        startTrigger
-                            .register()
-                            .trigger({ tekst: item.tekstmelding, ruwetekst: item.melding, dienst: item.dienst });
+                        const startTrigger = this.homey.flow.getTriggerCard('new_message');
 
-                        // flow.trigger('new_message', { tekst: item.tekstmelding, ruwetekst: item.melding, dienst: item.dienst });
+                        startTrigger.trigger({ tekst: item.tekstmelding, ruwetekst: item.melding, dienst: item.dienst });
                     }
                 }
             }
