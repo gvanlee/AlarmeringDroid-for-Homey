@@ -12,6 +12,7 @@ What could be better:
 * Runs approximately twice per minute. (Near) real time would be a nice feature. We are still looking into this.
 
 Last update:
+* 1.3.1: Add capcode tag to message
 * 1.3.0: Changed code to Homey SDK level 3
 * 1.2.0: Changed code to Homey SDK level 2
 * 1.1.5: Try harder to prevent duplicate message problem
