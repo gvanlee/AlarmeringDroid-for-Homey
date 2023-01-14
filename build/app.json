@@ -9,7 +9,7 @@
         "nl": "Signalering van meldingen die via P2000 verstuurd zijn",
         "en": "Take action based on messages of the Dutch P2000 network"
     },
-    "version": "1.3.0",
+    "version": "1.3.1",
     "compatibility": ">=5.0.0",
     "platforms": [ "cloud", "local" ],
     "brandColor": "#f6742c",
@@ -64,6 +64,17 @@
                         "example": {
                             "en": "Brandweer",
                             "nl": "Brandweer"
+                        }
+                    },
+                    {
+                        "name": "capcodes",
+                        "title": {
+                            "en": "capcodes",
+                            "nl": "capcodes"
+                        },
+                        "example": {
+                            "en": "01234567",
+                            "nl": "01234567"
                         }
                     }
                 ]

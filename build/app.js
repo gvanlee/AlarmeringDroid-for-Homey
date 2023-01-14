@@ -37,7 +37,7 @@ class homeyAlarmeringDroid extends Homey.App {
                         let startTrigger = new Homey.FlowCardTrigger('new_message');
                         startTrigger
                             .register()
-                            .trigger({ tekst: item.tekstmelding, ruwetekst: item.melding, dienst: item.dienst });
+                            .trigger({ tekst: item.tekstmelding, ruwetekst: item.melding, dienst: item.dienst, capcodes: item.capcodes });
 
                         // flow.trigger('new_message', { tekst: item.tekstmelding, ruwetekst: item.melding, dienst: item.dienst });
                     }
@@ -82,8 +82,8 @@ class homeyAlarmeringDroid extends Homey.App {
         req.end();
 
         var myApp = this;
-        setTimeout(function () { 
-            myApp.fetchFeed(true); 
+        setTimeout(function () {
+            myApp.fetchFeed(true);
         }, 15000);
     }
 
